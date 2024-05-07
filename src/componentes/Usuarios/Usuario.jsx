@@ -100,7 +100,7 @@ export function TableUsuario() {
     };
 
     return (
-        <div className="table-frame">
+        <div className="table-frame sm-col-4">
             <div className="search-container">
                 <input
                     type="text"
@@ -123,7 +123,7 @@ export function TableUsuario() {
                 <br />
             </div>
             <div className="table-scroll-container"> {/* Nuevo contenedor para scroll */}
-                <table className="table-content">
+                <table className="table-content table table-striped">
                     <thead>
                         <tr>
                             <th>Rut</th>
