@@ -1,0 +1,26 @@
+/* Layout.css */
+.layout-container {
+    display: flex; /* Usa flexbox para dividir el espacio entre el menú lateral y el contenido */
+    height: 100vh; /* Altura completa de la vista */
+}
+
+.sidebar {
+    /* Define los estilos del menú lateral */
+    width: 250px; /* Ancho fijo para el menú lateral */
+    transition: width 0.3s ease-in-out; /* Transición suave cuando el menú colapsa */
+}
+
+.sidebar.collapsed {
+    width: 0; /* Ancho del menú lateral cuando está colapsado */
+}
+
+.content {
+    flex: 1; /* Toma todo el espacio restante */
+    padding: 20px; /* Espacio alrededor de la tabla */
+    transition: margin-left 0.3s ease-in-out; /* Transición suave cuando el menú colapsa */
+}
+
+
+.content.collapsed {
+    margin-left: 50px; 
+}
