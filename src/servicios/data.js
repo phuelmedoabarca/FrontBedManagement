@@ -1,5 +1,5 @@
-//const URL = 'https://api-bedmanagement.azurewebsites.net/api/'
-const URL = 'http://localhost:5220/api/'
+const URL = 'https://api-bedmanagement.azurewebsites.net/api/'
+//sconst URL = 'http://localhost:5220/api/'
 
 export function login(email, contrasena){
     let credential = {email, contrasena}
