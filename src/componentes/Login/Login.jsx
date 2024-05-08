@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import Modal from "../Modals/Alerts/Modal";
 import { jwtDecode } from "jwt-decode";
+import Logo from '../../assets/logo.png';
 
 export function Login(){
     const [credentials, setCredentials] = useState({email:'',password:''})
@@ -58,7 +59,9 @@ export function Login(){
           console.log("Inicio de sesión exitoso:", data);
           const decodedToken = jwtDecode(data.token);
           const rolid = decodedToken.RolId;
+          const usuarioId = decodedToken.UsuarioId;
           localStorage.setItem('rolId', rolid);
+          localStorage.setItem('usuarioId', usuarioId);
           localStorage.setItem('token', data.token);
           navigate('/Home');
         } else {
@@ -79,9 +82,9 @@ export function Login(){
         <>
             <div className="container">
                 <div className="form-box">
-                    <h1></h1>
+                <img src={Logo} alt="Isotipo Menu" style={{ width: '265px', height: '50px', paddingTop: '15px' }} />
                     <form id="formulario" onSubmit={handlerSubmit}>
-                        <label>
+                        <label style={{ paddingTop: '15px' }}>
                             Email
                             <input
                                 type="text"

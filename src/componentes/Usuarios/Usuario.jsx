@@ -47,41 +47,41 @@ export function TableUsuario() {
     };
 
     async function handlerSearch(e){
-        try {
-                const data = await API.GetUsers(storedToken);
-                console.error("usuarios:", data);
-                setUsuarios(data);
-            } catch (error) {
-                console.error("Error durante la obtención de usuarios:", data);
-            }
+    try {
+            const data = await API.GetUsers(storedToken);
+            console.error("usuarios:", data);
+            setUsuarios(data);
+        } catch (error) {
+            console.error("Error durante la obtención de usuarios:", data);
         }
+    }
 
     async function handlerSearchByFilters(e){
-        try {
-                const data = await API.GetUsersByFilters(searchRUT, searchName, storedToken);
-                console.error("usuarios:", data);
-                setUsuarios(data);
-            } catch (error) {
-                console.error(error);
-                setUsuarios([]);
-            }
+    try {
+            const data = await API.GetUsersByFilters(searchRUT, searchName, storedToken);
+            console.error("usuarios:", data);
+            setUsuarios(data);
+        } catch (error) {
+            console.error(error);
+            setUsuarios([]);
         }
+    }
 
     const handleConfirmDelete = async () => {
-        if (userToDelete) {
-            try {
-                await API.UserDelete(userToDelete.rut.documento, storedToken);
-                setIsSuccess(true);
-                setMessage("Usuario eliminado correctamente.");
-                handlerSearch(); // Actualiza la tabla de usuarios
-            } catch (error) {
-                setIsError(true);
-                setMessage("Error durante la eliminación del usuario.");
-            } finally {
-                closeConfirmModal(); // Cierra el modal de confirmación
-            }
+    if (userToDelete) {
+        try {
+            await API.UserDelete(userToDelete.rut.documento, storedToken);
+            setIsSuccess(true);
+            setMessage("Usuario eliminado correctamente.");
+            handlerSearch();
+        } catch (error) {
+            setIsError(true);
+            setMessage("Error durante la eliminación del usuario.");
+        } finally {
+            closeConfirmModal();
         }
-    };
+    }
+};
 
     const handleModalAlertClose = () => {
         setIsSuccess(false);
@@ -158,7 +158,6 @@ export function TableUsuario() {
                     </tbody>
                 </table>
             </div>
-            {/* Modal de Nuevo Usuario */}
             {modalState.isOpen && modalState.type === 'new' && (
                 <NewUsuarioModal
                     isOpen={modalState.isOpen}
@@ -170,7 +169,6 @@ export function TableUsuario() {
                 />
             )}
 
-            {/* Modal de Edición de Usuario */}
             {modalState.isOpen && modalState.type === 'edit' && (
                 <EditUsuarioModal
                     isOpen={modalState.isOpen}

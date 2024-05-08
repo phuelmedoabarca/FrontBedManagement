@@ -1,0 +1,24 @@
+.form-group label,
+.form-group input,
+.form-group select {
+    text-align: left;
+}
+
+.input-style {
+    width: 100%; /* Asegura que el ancho del select coincida con el de los inputs */
+    padding: 0.3rem; /* Relleno similar a los inputs */
+    border-radius: 4px; /* Radio de esquina similar a los inputs */
+}
+
+/* Estilos para los botones */
+.submit-button, .close-button {
+    padding: 0.5rem 1rem; /* Ajusta el relleno según sea necesario */
+    border: none; /* Ajusta el estilo del borde según sea necesario */
+    border-radius: 4px; /* Radio de esquina similar para ambos botones */
+    cursor: pointer; /* Cursor de puntero al pasar sobre los botones */
+    /* Añade otros estilos según tus necesidades (color, fondo, etc.) */
+}
+
+.title{
+    text-align: left;
+}

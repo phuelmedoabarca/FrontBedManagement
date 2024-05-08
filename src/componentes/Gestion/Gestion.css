@@ -1,0 +1,39 @@
+.search-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .search-input {
+    flex: 1;
+    width: 100%;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .search-container {
+      flex-direction: column;
+    }
+  }
+
+.counter-container {
+    display: flex; /* Utiliza flexbox para alinear los contadores */
+    justify-content: space-around; /* Espacio uniforme entre los contadores */
+    margin-bottom: 20px; /* Espaciado inferior entre los contadores */
+}
+
+.counter-box {
+    width: 150px; /* Ancho de cada recuadro */
+    padding: 10px; /* Espaciado interno */
+    border: 2px solid #ccc; /* Borde del recuadro */
+    border-radius: 8px; /* Bordes redondeados */
+    text-align: center; /* Alineación del texto al centro */
+}
+
+.counter-number {
+    font-size: 24px; /* Tamaño de fuente grande */
+    font-weight: bold; /* Texto en negrita */
+}
+
+.counter-label {
+    margin-top: 5px; /* Espaciado superior entre el número y la etiqueta */
+}
