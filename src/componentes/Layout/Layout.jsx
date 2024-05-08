@@ -20,19 +20,6 @@ export function Layout() {
         }
     }, [navigate]);
 
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth < 800) {
-                setCollapsed(false);
-                Setmenu(true);
-            } else {
-                Setmenu(false);
-            }
-        };
-        window.addEventListener('resize', handleResize);
-        handleResize();
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
     
     const handleCollapsedChange = (newCollapsed) => {
         setCollapsed(newCollapsed);
@@ -44,11 +31,10 @@ export function Layout() {
 
     return (
         <div className={`layout-container ${collapsed ? 'collapsed' : ''}`}>
-            {!menu && (
                 <div className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
                     <NavMenu rolId={rolId} onMenuSelection={handleMenuSelection} onCollapsedChange={handleCollapsedChange} />
                 </div>
-            )}
+
 
             <div className={`content ${collapsed ? 'collapsed' : ''}`}>
                 {selectedMenu === null && (
