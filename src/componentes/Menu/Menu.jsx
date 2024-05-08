@@ -4,6 +4,7 @@ import { LuUserPlus, LuPanelLeftClose  } from "react-icons/lu";
 import { FiChevronsLeft, FiChevronsRight } from "react-icons/fi";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { useNavigate } from 'react-router-dom';
+import isotipoMenu from '../../assets/isotipoMenu.png';
 
 export function NavMenu({rolId, onMenuSelection, onCollapsedChange }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -37,6 +38,7 @@ export function NavMenu({rolId, onMenuSelection, onCollapsedChange }) {
         <main>
           <Menu>
             {collapsed ? (
+              
               <MenuItem
                 icon={<FiChevronsRight />}
                 onClick={handleCollapsedChange}
@@ -48,13 +50,21 @@ export function NavMenu({rolId, onMenuSelection, onCollapsedChange }) {
               >
                 <div 
                   style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                     padding: "9px",
                     fontWeight: "bold",
                     fontSize: 14,
-                    letterSpacing: "1px"
+                    letterSpacing: "1px",
+                    height: '100px',
+                    width: '100%'
                   }}
                 >
-                  YOUR LOGO!..
+                  <div>
+                    <img src={isotipoMenu} alt="Isotipo Menu" style={{ width: '50px', height: '50px', paddingTop: '15px' }} />
+                  </div>
+                  
                 </div>
               </MenuItem>
             )}
@@ -69,7 +79,7 @@ export function NavMenu({rolId, onMenuSelection, onCollapsedChange }) {
               <MenuItem icon={<LuUserPlus />}>Solicitud Cama</MenuItem>
             )}
             {rolId === '1c750d1a-264d-405e-ae20-365537edb404' && (
-              <MenuItem icon={<LuUserPlus />}>Asignación</MenuItem>
+              <MenuItem icon={<LuUserPlus />} onClick={() => onMenuSelection('asignacion')}>Asignación</MenuItem>
             )}
             {rolId === '16298d23-cd62-4068-802a-0191e3Aeb4e6' && (
               <MenuItem icon={<LuUserPlus />}>Alta Paciente</MenuItem>

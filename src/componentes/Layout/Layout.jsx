@@ -1,11 +1,13 @@
 import { NavMenu } from '../Menu/Menu';
 import React, { useState, useEffect } from "react";
 import { TableUsuario } from "../Usuarios/Usuario";
+import {TableGestion } from "../Gestion/Gestion";
 import "./Layout.css";
 import { useNavigate } from 'react-router-dom';
 
 export function Layout() {
     const [collapsed, setCollapsed] = useState(false);
+    const [menu, Setmenu] = useState(false);
     const [rolId, setRolId] = useState(null);
     const [selectedMenu, setSelectedMenu] = useState(null);
     const navigate = useNavigate();
@@ -18,6 +20,20 @@ export function Layout() {
         }
     }, [navigate]);
 
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 800) {
+                setCollapsed(false);
+                Setmenu(true);
+            } else {
+                Setmenu(false);
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+    
     const handleCollapsedChange = (newCollapsed) => {
         setCollapsed(newCollapsed);
     };
@@ -28,19 +44,20 @@ export function Layout() {
 
     return (
         <div className={`layout-container ${collapsed ? 'collapsed' : ''}`}>
-            <div className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
-                <NavMenu rolId={rolId} onMenuSelection={handleMenuSelection} onCollapsedChange={handleCollapsedChange} />
-            </div>
+            {!menu && (
+                <div className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
+                    <NavMenu rolId={rolId} onMenuSelection={handleMenuSelection} onCollapsedChange={handleCollapsedChange} />
+                </div>
+            )}
+
             <div className={`content ${collapsed ? 'collapsed' : ''}`}>
-                {/* Muestra el texto de bienvenida cuando no se ha seleccionado una opción del menú */}
                 {selectedMenu === null && (
                     <div className="welcome-message">
-
+                        
                     </div>
                 )}
-
-                {/* Muestra la tabla de usuarios cuando se selecciona la opción "usuarios" en el menú */}
                 {selectedMenu === 'usuarios' && <TableUsuario />}
+                {selectedMenu === 'asignacion' && <TableGestion />}
             </div>
         </div>
       );

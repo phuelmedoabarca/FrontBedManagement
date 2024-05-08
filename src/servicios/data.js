@@ -1,5 +1,5 @@
-const URL = 'https://api-bedmanagement.azurewebsites.net/api/'
-//sconst URL = 'http://localhost:5220/api/'
+//const URL = 'https://api-bedmanagement.azurewebsites.net/api/'
+const URL = 'http://localhost:5220/api/'
 
 export function login(email, contrasena){
     let credential = {email, contrasena}
@@ -98,3 +98,97 @@ export function GetRoles(token){
     .then(response => response.json())
 }
 
+export function GetIngresosGestion(token){
+    return fetch(URL+'Ingreso',{
+        method:'GET',
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(response => response.json())
+}
+
+export function GetIngresosByFilters(rut, nombre, token){
+    let url = URL + 'Ingreso/rut/nombre';
+
+    if (rut) {
+        url = url + '?rut=' + rut;
+    }
+
+    if (nombre) {
+        if(rut){
+            url = url + '&nombre=' + nombre;
+        }
+        else{
+            url = url + '?nombre=' + nombre;
+        }
+    }
+
+    return fetch(url.toString(), {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(response => response.json())
+}
+
+export function IngresoUpdate(idIngreso, idCama, idUsuario, token){
+    let ingreso = {idIngreso, idCama, idUsuario}
+    return fetch(URL+'Ingreso',{
+        method:'PUT',
+        body:JSON.stringify(ingreso),
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(response => response.json())
+}
+
+export function GetSalaByUnidad(idUnidad, token){
+    return fetch(URL+'Sala/unidadId?unidadId='+ idUnidad,{
+        method:'GET',
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(response => response.json())
+}
+
+
+export function GetCamaBySala(idSala, token){
+    return fetch(URL+'Cama/salaId?salaId='+ idSala,{
+        method:'GET',
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(response => response.json())
+}
+
+export function CountsCamaByUnidad(idUnidad, token){
+    return fetch(`${URL}Cama/unidadId?unidadId=${idUnidad}`, {
+        method:'GET',
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(response => response.json())
+}
+
+export function CountsIngresosPendientes(token){
+    return fetch(`${URL}Ingreso/counter`, {
+        method:'GET',
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(response => response.json())
+}
