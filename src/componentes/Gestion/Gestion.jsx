@@ -31,11 +31,11 @@ export function TableGestion() {
             const cirugia = await API.CountsCamaByUnidad(1 ,storedToken);
             setContadorCirugia(cirugia);
 
-            const uci = await API.CountsCamaByUnidad(2, storedToken);
-            setContadorUCI(uci);
-
-            const uti = await API.CountsCamaByUnidad(3, storedToken);
+            const uti = await API.CountsCamaByUnidad(2, storedToken);
             setContadorUTI(uti);
+
+            const uci = await API.CountsCamaByUnidad(3, storedToken);
+            setContadorUCI(uci);
         } catch (error) {
             console.error("Error al obtener contadores:", error);
         }
@@ -146,6 +146,7 @@ export function TableGestion() {
                             <tr>
                                 <th>Rut</th>
                                 <th>Nombre</th>
+                                <th>Apellido paterno</th>
                                 <th>Estado</th>
                                 <th>Unidad</th>
                                 <th></th>
@@ -159,8 +160,9 @@ export function TableGestion() {
                             ) : (
                                 ingresos.map((ingreso) => (
                                     <tr key={ingreso.paciente.rut.documento}>
-                                        <td>{ingreso.paciente.rut.documento}</td>
+                                        <td>{ingreso.paciente.rut.documento}-{ingreso.paciente.rut.digito}</td>
                                         <td>{ingreso.paciente.nombre}</td>
+                                        <td>{ingreso.paciente.apellidoPaterno}</td>
                                         <td>{getNombreEstado(ingreso.idEstado)}</td>
                                         <td>{ingreso.unidad.nombre}</td>
                                         <td className='align-button'>

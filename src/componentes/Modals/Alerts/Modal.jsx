@@ -23,7 +23,7 @@ function Modal({ isOpen, onClose, onConfirm, confirmText, children, isError }) {
           <div className="button-container">
             <button className="close-button" onClick={onClose}>Cerrar</button>
             {onConfirm && (
-              <button className="close-button" onClick={onConfirm}>{confirmText}</button>
+              <button className="confirm-button" onClick={onConfirm}>{confirmText}</button>
             )}
           </div>
         </div>

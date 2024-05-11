@@ -8,6 +8,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 function EditUsuarioModal({ isOpen, onClose, onSubmit, initialValues }) {
     const [formValues, setFormValues] = useState({
         rut: initialValues.rut || '',
+        digito: initialValues.digito || '',
         nombre: initialValues.nombre || '',
         email: initialValues.email || '',
         clave: initialValues.clave || '',
@@ -18,6 +19,7 @@ function EditUsuarioModal({ isOpen, onClose, onSubmit, initialValues }) {
     const [isError, setIsError] = useState(false);
     const [message, setMessage] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const rutCompleto = initialValues.rut.documento + '-' + initialValues.rut.digito || '';
     const storedToken = localStorage.getItem('token');
 
     const togglePasswordVisibility = () => {
@@ -27,6 +29,7 @@ function EditUsuarioModal({ isOpen, onClose, onSubmit, initialValues }) {
     useEffect(() => {
         setFormValues({
             rut: initialValues.rut.documento || '',
+            digito: initialValues.rut.digito || '',
             nombre: initialValues.nombre || '',
             email: initialValues.email.email || '',
             clave: initialValues.clave || '',
@@ -55,7 +58,7 @@ function EditUsuarioModal({ isOpen, onClose, onSubmit, initialValues }) {
         e.preventDefault();
         try {
             const data = await API.UserUpdate(
-                formValues.rut,
+                rutCompleto,
                 formValues.nombre,
                 formValues.clave,
                 formValues.email,
@@ -112,7 +115,7 @@ function EditUsuarioModal({ isOpen, onClose, onSubmit, initialValues }) {
                                         type="text"
                                         id="rut"
                                         name="rut"
-                                        value={formValues.rut}
+                                        value={rutCompleto}
                                         onChange={handleInputChange}
                                         readOnly={true}
                                     />
