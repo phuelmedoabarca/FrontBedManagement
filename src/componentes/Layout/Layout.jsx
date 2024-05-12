@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 export function Layout() {
     const [collapsed, setCollapsed] = useState(false);
-    const [menu, Setmenu] = useState(false);
     const [rolId, setRolId] = useState(null);
     const [selectedMenu, setSelectedMenu] = useState(null);
     const navigate = useNavigate();

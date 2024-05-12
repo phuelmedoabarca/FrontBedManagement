@@ -42,7 +42,11 @@ function NewUsuarioModal({ isOpen, onClose, onSubmit, initialValues = {} }) {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormValues({ ...formValues, [name]: value });
+        let filteredValue = value;
+        if (name === "rut") {
+            filteredValue = value.replace(/\./g, '');
+        }
+        setFormValues({ ...formValues, [name]: filteredValue });
     };
 
     const handleSubmit = async (e) => {
@@ -111,7 +115,7 @@ function NewUsuarioModal({ isOpen, onClose, onSubmit, initialValues = {} }) {
                                     onChange={handleInputChange}
                                     required
                                     placeholder="Ingrese el RUT"
-                                    maxLength={40}
+                                    maxLength={10}
                                 />
                             </div>
                             <div className="form-group">

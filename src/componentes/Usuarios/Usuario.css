@@ -71,16 +71,15 @@ th {
     padding: 8px 12px; /* Espaciado interno de los botones */
     border-radius: 5px; /* Bordes redondeados */
     border: none; /* Sin bordes */
-    background-color: #00b9d1; /* Color de fondo (puedes cambiarlo) */
+    background-color: #0B2B85; /* Color de fondo (puedes cambiarlo) */
     color: white; /* Color del texto */
     cursor: pointer; /* Cursor de puntero */
     margin-right: 10px;
     float: right;
 }
 
-.button:hover,
 .button:hover {
-    background-color: #02abc2; /* Color de fondo al pasar el mouse */
+    background-color: #1e45b3; /* Color de fondo al pasar el mouse */
 }
 
 .search-input {

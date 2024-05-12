@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import "./Gestion.css";
 import * as API from '../../servicios/data';
 import AsignarCamaModal from '../Modals/AsignarCama/AsignarCama';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 export function TableGestion() {
     const [ingresos, setIngresos] = useState([]);
@@ -19,8 +22,8 @@ export function TableGestion() {
     const [contadorUTI, setContadorUTI] = useState(0);
 
     useEffect(() => {
-        handlerSearch();
         fetchContadores();
+        handlerSearch();
     }, []);
 
     const fetchContadores = async () => {
@@ -41,12 +44,13 @@ export function TableGestion() {
         }
     }
 
-    const handleSearchNameChange = (event) => {
-        setSearchName(event.target.value);
+    const handleSearchNameChange = (e) => {
+        setSearchName(e.target.value);
     };
 
-    const handleSearchRUTChange = (event) => {
-        setSearchRUT(event.target.value);
+    const handleSearchRUTChange = (e) => {
+        const value = e.target.value.replace(/\./g, '');
+        setSearchRUT(value);
     };
 
     async function handlerSearch(e){
@@ -61,6 +65,7 @@ export function TableGestion() {
 
     async function handlerSearchByFilters(e){
     try {
+            fetchContadores();
             const data = await API.GetIngresosByFilters(searchRUT, searchName, storedToken);
             console.error("ingresos:", data);
             setIngresos(data);
@@ -99,26 +104,46 @@ export function TableGestion() {
         fetchContadores();
     };
 
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
+
     return (
         <div>
-            <div className="counter-container">
-                <div className="counter-box">
-                    <div className="counter-number">{contadorPendiente}</div>
-                    <div className="counter-label">Pendientes por asignar</div>
-                </div>
-                <div className="counter-box">
-                    <div className="counter-number">{contadorCirugia}</div>
-                    <div className="counter-label">Disponibles Cirugia</div>
-                </div>
-                <div className="counter-box">
-                    <div className="counter-number">{contadorUCI}</div>
-                    <div className="counter-label">Disponibles UCI</div>
-                </div>
-                <div className="counter-box">
-                    <div className="counter-number">{contadorUTI}</div>
-                    <div className="counter-label">Disponibles UTI</div>
-                </div>
+            <div className="slider-container">
+                <Slider className="custom-slider" {...settings}>
+                    <div className="counter-box">
+                        <div className="counter-number">{contadorPendiente}</div>
+                        <div className="counter-label">Pendientes por asignar</div>
+                    </div>
+                    <div className="counter-box">
+                        <div className="counter-number">{contadorCirugia}</div>
+                        <div className="counter-label">Disponibles Cirugia</div>
+                    </div>
+                    <div className="counter-box">
+                        <div className="counter-number">{contadorUCI}</div>
+                        <div className="counter-label">Disponibles UCI</div>
+                    </div>
+                    <div className="counter-box">
+                        <div className="counter-number">{contadorUTI}</div>
+                        <div className="counter-label">Disponibles UTI</div>
+                    </div>
+                </Slider>
             </div>
+            <br />
             <div className="table-frame sm-col-4">
                 <div className="search-container">
                     <input
@@ -127,7 +152,7 @@ export function TableGestion() {
                         onChange={handleSearchRUTChange}
                         placeholder="RUT"
                         className="search-input"
-                        maxLength={12}
+                        maxLength={10}
                     />
                     <input
                         type="text"
@@ -160,11 +185,11 @@ export function TableGestion() {
                             ) : (
                                 ingresos.map((ingreso) => (
                                     <tr key={ingreso.paciente.rut.documento}>
-                                        <td>{ingreso.paciente.rut.documento}-{ingreso.paciente.rut.digito}</td>
-                                        <td>{ingreso.paciente.nombre}</td>
-                                        <td>{ingreso.paciente.apellidoPaterno}</td>
+                                        <td>{ingreso.paciente && ingreso.paciente.rut.documento}-{ingreso.paciente && ingreso.paciente.rut.digito}</td>
+                                        <td>{ingreso.paciente && ingreso.paciente.nombre}</td>
+                                        <td>{ingreso.paciente && ingreso.paciente.apellidoPaterno}</td>
                                         <td>{getNombreEstado(ingreso.idEstado)}</td>
-                                        <td>{ingreso.unidad.nombre}</td>
+                                        <td>{ingreso.unidad && ingreso.unidad.nombre}</td>
                                         <td className='align-button'>
                                             {ingreso.idEstado === 2 && ( 
                                                 <button className="edit-button" onClick={() => openModal(ingreso.idIngreso, ingreso.paciente, ingreso.unidad.nombre, ingreso.idUnidad)}>Asignar</button> 
