@@ -1,6 +1,7 @@
 const URL = 'https://api-bedmanagement.azurewebsites.net/api/'
 //const URL = 'http://localhost:5220/api/'
 
+
 export function login(email, contrasena){
     let credential = {email, contrasena}
     return fetch(URL+'Login',{

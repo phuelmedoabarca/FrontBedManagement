@@ -22,7 +22,6 @@
 }
 
 .counter-box {
-    width: 150px; /* Ancho de cada recuadro */
     padding: 10px; /* Espaciado interno */
     border: 2px solid #ccc; /* Borde del recuadro */
     border-radius: 8px; /* Bordes redondeados */
@@ -36,4 +35,18 @@
 
 .counter-label {
     margin-top: 5px; /* Espaciado superior entre el número y la etiqueta */
+}
+
+.custom-slider {
+  width: 70%; /* Ancho completo del slider */
+  max-width: 800px; /* Ancho máximo del slider */
+}
+
+.slider-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+}
+
+.slick-slide {
+  padding-right: 20px; /* Ajusta este valor según sea necesario */
 }

@@ -1,23 +1,22 @@
-/* Layout.css */
 .layout-container {
-    display: flex; /* Usa flexbox para dividir el espacio entre el menú lateral y el contenido */
-    height: 100vh; /* Altura completa de la vista */
+    display: flex;
+    height: 100vh;
 }
 
 .sidebar {
-    /* Define los estilos del menú lateral */
-    width: 250px; /* Ancho fijo para el menú lateral */
-    transition: width 0.3s ease-in-out; /* Transición suave cuando el menú colapsa */
+    width: 250px; 
+    transition: width 0.3s ease-in-out; 
 }
 
 .sidebar.collapsed {
-    width: 0; /* Ancho del menú lateral cuando está colapsado */
+    width: 0;
 }
 
 .content {
-    flex: 1; /* Toma todo el espacio restante */
-    padding: 20px; /* Espacio alrededor de la tabla */
-    transition: margin-left 0.3s ease-in-out; /* Transición suave cuando el menú colapsa */
+    flex: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+    color: black;
 }
 
 
@@ -25,3 +24,22 @@
     margin-left: 50px; 
 }
 
+@media screen and (max-width: 768px) {
+    .layout-container {
+        flex-direction: column; /* Cambiar a una columna en pantallas pequeñas */
+    }
+
+    .sidebar {
+        width: 100%; /* Ocupar todo el ancho disponible */
+        height: auto; /* Ajustar la altura automáticamente */
+    }
+
+    .content {
+        flex: none; /* No se expande, toma su tamaño según su contenido */
+        margin-left: 0; /* Ajustar el margen izquierdo */
+    }
+
+    .sidebar.collapsed {
+        width: 100%; /* Si está colapsado, ocupar todo el ancho disponible */
+    }
+}

@@ -23,12 +23,13 @@ export function TableUsuario() {
         handlerSearch();
     }, []);
 
-    const handleSearchNameChange = (event) => {
-        setSearchName(event.target.value);
+    const handleSearchNameChange = (e) => {
+        setSearchName(e.target.value);
     };
 
-    const handleSearchRUTChange = (event) => {
-        setSearchRUT(event.target.value);
+    const handleSearchRUTChange = (e) => {
+        const value = e.target.value.replace(/\./g, '');
+        setSearchRUT(value);
     };
 
     const handleEditUser = (usuario) => {
@@ -68,20 +69,20 @@ export function TableUsuario() {
     }
 
     const handleConfirmDelete = async () => {
-    if (userToDelete) {
-        try {
-            await API.UserDelete(`${userToDelete.rut.documento}-${userToDelete.rut.digito}`, storedToken);
-            setIsSuccess(true);
-            setMessage("Usuario eliminado correctamente.");
-            handlerSearch();
-        } catch (error) {
-            setIsError(true);
-            setMessage("Error durante la eliminación del usuario.");
-        } finally {
-            closeConfirmModal();
+        if (userToDelete) {
+            try {
+                await API.UserDelete(`${userToDelete.rut.documento}-${userToDelete.rut.digito}`, storedToken);
+                setIsSuccess(true);
+                setMessage("Usuario eliminado correctamente.");
+                handlerSearch();
+            } catch (error) {
+                setIsError(true);
+                setMessage("Error durante la eliminación del usuario.");
+            } finally {
+                closeConfirmModal();
+            }
         }
-    }
-};
+    };
 
     const handleModalAlertClose = () => {
         setIsSuccess(false);
@@ -108,7 +109,7 @@ export function TableUsuario() {
                     onChange={handleSearchRUTChange}
                     placeholder="RUT"
                     className="search-input"
-                    maxLength={12}
+                    maxLength={10}
                 />
                 <input
                     type="text"
@@ -122,8 +123,8 @@ export function TableUsuario() {
                 <button className="button" onClick={handlerSearchByFilters}>Buscar</button>
                 <br />
             </div>
-            <div className="table-scroll-container"> {/* Nuevo contenedor para scroll */}
-                <table className="table-content table table-striped">
+            <div className="table-scroll-container">
+                <table className="table-content table">
                     <thead>
                         <tr>
                             <th>Rut</th>
