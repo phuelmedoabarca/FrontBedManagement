@@ -36,7 +36,16 @@
 }
 
 .close-button {
-    background-color: #00b9d1;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.confirm-button {
+    background-color: #0B2B85;
     color: white;
     padding: 10px 20px;
     border: none;

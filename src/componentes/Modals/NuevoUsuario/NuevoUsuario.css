@@ -19,6 +19,11 @@
     /* Añade otros estilos según tus necesidades (color, fondo, etc.) */
 }
 
+.submit-button{
+  background-color: #0B2B85;
+  color: white;
+}
+
 .title{
     text-align: left;
 }

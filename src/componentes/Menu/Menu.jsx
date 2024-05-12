@@ -21,7 +21,7 @@ export function NavMenu({rolId, onMenuSelection, onCollapsedChange }) {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('rolId');
+    localStorage.clear();
     navigate("/");
   };
 

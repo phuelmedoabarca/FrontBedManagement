@@ -70,7 +70,7 @@ export function TableUsuario() {
     const handleConfirmDelete = async () => {
     if (userToDelete) {
         try {
-            await API.UserDelete(userToDelete.rut.documento, storedToken);
+            await API.UserDelete(`${userToDelete.rut.documento}-${userToDelete.rut.digito}`, storedToken);
             setIsSuccess(true);
             setMessage("Usuario eliminado correctamente.");
             handlerSearch();
@@ -142,7 +142,7 @@ export function TableUsuario() {
                         ) : (
                             usuarios.map((usuario) => (
                                 <tr key={usuario.rut.documento}>
-                                    <td>{usuario.rut.documento}</td>
+                                    <td>{usuario.rut.documento}-{usuario.rut.digito}</td>
                                     <td>{usuario.nombre}</td>
                                     <td>{usuario.email.email}</td>
                                     <td>{usuario.rol.nombre}</td>

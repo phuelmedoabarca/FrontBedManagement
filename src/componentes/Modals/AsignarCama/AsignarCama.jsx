@@ -17,7 +17,8 @@ function AsignarCamaModal({ isOpen, onClose, ingreso, rut, unidad, unidadId, ini
     const [camas, setCamas] = useState([]);
     const storedToken = localStorage.getItem('token');
     const storedUsuario = localStorage.getItem('usuarioId');
-
+    const rutCompleto = rut.rut.documento + '-' + rut.rut.digito || '';
+    
     useEffect(() => {
         const fetchSalas = async () => {
             try {
@@ -119,7 +120,7 @@ function AsignarCamaModal({ isOpen, onClose, ingreso, rut, unidad, unidadId, ini
                                     type="text"
                                     id="rut"
                                     name="rut"
-                                    value={rut.rut.documento}
+                                    value={rutCompleto}
                                     onChange={handleInputChange}
                                     required
                                     placeholder="Ingrese el RUT"
