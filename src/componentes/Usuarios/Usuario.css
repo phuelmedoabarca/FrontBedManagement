@@ -1,35 +1,31 @@
 table {
-    border-collapse: collapse; /* Combina los bordes de las celdas */
-    width: 100%; /* Ancho de la tabla */
-    border: 2px solid black; /* Borde alrededor de la tabla */
+    border-collapse: collapse; 
+    width: 100%;
+    border: 2px solid black;
 }
 
-/* Estilo para las celdas y filas */
 th, td {
-    border: 1px solid black; /* Borde alrededor de cada celda */
-    padding: 8px; /* Espaciado dentro de cada celda */
-    text-align: left; /* Alineación del texto a la izquierda */
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
 }
 
-/* Estilo para la cabecera de la tabla */
 th {
-    background-color: #f2f2f2; /* Color de fondo para los encabezados */
+    background-color: #f2f2f2;
 }
-
 
 .table-frame {
     padding: 20px;
-    border: 2px solid #ccc; /* Borde del recuadro */
-    border-radius: 8px; /* Bordes redondeados */
-    background-color: white; /* Fondo blanco */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-    max-width: 90%; /* Ancho máximo del recuadro */
-    margin: 20px auto; /* Centramos el recuadro horizontalmente */
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    margin: 20px auto;
 }
 
-/* Estilo para la tabla */
 .table-content {
-    width: 100%; /* La tabla ocupa todo el ancho del recuadro */
+    width: 100%;
     border-collapse: collapse;
     border: 1px solid #ccc;
 }
@@ -40,87 +36,83 @@ th {
 }
 
 .table-content th {
-    background-color: #f2f2f2; /* Color de fondo para los encabezados */
+    background-color: #f2f2f2;
 }
 
 .search-container {
-    margin-bottom: 15px; /* Espaciado debajo del contenedor */
+    margin-bottom: 15px;
 }
 
 .search-input {
-    width: 20%; /* Ancho de los inputs para que ocupen la mitad del contenedor */
-    padding: 6px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
-    border: 1px solid #ccc; /* Borde sutil */
+    width: 20%;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
     margin-right: 15px;
 }
 
-/* Estilo para el contenedor de botones */
 .button-container {
-    display: flex; /* Usa flexbox para alinear los elementos */
+    display: flex;
     justify-content: center;
-    margin-bottom: 10px; /* Espaciado debajo del contenedor */
-    align-items: center; /* Alineación vertical de los elementos */
+    margin-bottom: 10px;
+    align-items: center;
     gap: 50px;
 }
 
-
-/* Estilo para los botones */
 .button {
-    margin-bottom: 10px; /* Espaciado entre los botones */
-    padding: 8px 12px; /* Espaciado interno de los botones */
-    border-radius: 5px; /* Bordes redondeados */
-    border: none; /* Sin bordes */
-    background-color: #0B2B85; /* Color de fondo (puedes cambiarlo) */
-    color: white; /* Color del texto */
-    cursor: pointer; /* Cursor de puntero */
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: #0B2B85;
+    color: white;
+    cursor: pointer;
     margin-right: 10px;
     float: right;
 }
 
 .button:hover {
-    background-color: #1e45b3; /* Color de fondo al pasar el mouse */
+    background-color: #1e45b3;
 }
 
 .search-input {
-    width: 30%; /* Ajusta el ancho según tus necesidades */
-    padding: 6px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
-    border: 1px solid #ccc; /* Borde sutil */
-    margin-right: 10px; /* Espacio entre los campos de entrada */
+    width: 30%;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
 }
-
 
 .edit-button,
 .delete-button {
-    padding: 5px 10px; /* Espaciado interno de los botones */
-    border-radius: 5px; /* Bordes redondeados */
-    border: none; /* Sin bordes */
-    cursor: pointer; /* Cursor de puntero */
-    color: white; /* Color del texto */
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
 }
 
 .edit-button {
-    background-color: #4CAF50; /* Color de fondo verde */
+    background-color: #4CAF50;
 }
 
 .delete-button {
-    background-color: #f44336; /* Color de fondo rojo */
+    background-color: #f44336;
 }
 
 .edit-button:hover {
-    background-color: #45a049; /* Color de fondo al pasar el mouse */
+    background-color: #45a049;
 }
 
 .delete-button:hover {
-    background-color: #e53935; /* Color de fondo al pasar el mouse */
+    background-color: #e53935;
 }
 
-.align-button{
+.align-button {
     text-align: center;
 }
 
 .table-scroll-container {
-    max-height: 400px; /* Establece la altura máxima del contenedor de la tabla */
-    overflow-y: auto; /* Permite el scroll vertical si el contenido supera la altura máxima */
+    max-height: 400px;
+    overflow-y: auto;
 }

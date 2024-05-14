@@ -6,8 +6,8 @@ import EditUsuarioModal from '../Modals/EditarUsuario/EditarUsuario';
 import Modal from '../Modals/Alerts/Modal';
 
 export function TableUsuario() {
-    const [searchName, setSearchName] = useState('');
-    const [searchRUT, setSearchRUT] = useState('');
+    const [buscarNombre, setBuscarNombre] = useState('');
+    const [buscarRUT, setBuscarRUT] = useState('');
     const [usuarios, setUsuarios] = useState([]);
     const [modalState, setModalState] = useState({ isOpen: false, type: null });
     const [selectedUser, setSelectedUser] = useState(null);
@@ -23,13 +23,13 @@ export function TableUsuario() {
         handlerSearch();
     }, []);
 
-    const handleSearchNameChange = (e) => {
-        setSearchName(e.target.value);
+    const handleBuscarNombreChange = (e) => {
+        setBuscarNombre(e.target.value);
     };
 
-    const handleSearchRUTChange = (e) => {
+    const handleBuscarRUTChange = (e) => {
         const value = e.target.value.replace(/\./g, '');
-        setSearchRUT(value);
+        setBuscarRUT(value);
     };
 
     const handleEditUser = (usuario) => {
@@ -50,7 +50,7 @@ export function TableUsuario() {
     async function handlerSearch(e){
     try {
             const data = await API.GetUsers(storedToken);
-            console.error("usuarios:", data);
+            console.info("usuarios:", data);
             setUsuarios(data);
         } catch (error) {
             console.error("Error durante la obtención de usuarios:", data);
@@ -59,8 +59,8 @@ export function TableUsuario() {
 
     async function handlerSearchByFilters(e){
     try {
-            const data = await API.GetUsersByFilters(searchRUT, searchName, storedToken);
-            console.error("usuarios:", data);
+            const data = await API.GetUsersByFilters(buscarRUT, buscarNombre, storedToken);
+            console.info("usuarios:", data);
             setUsuarios(data);
         } catch (error) {
             console.error(error);
@@ -105,8 +105,8 @@ export function TableUsuario() {
             <div className="search-container">
                 <input
                     type="text"
-                    value={searchRUT}
-                    onChange={handleSearchRUTChange}
+                    value={buscarRUT}
+                    onChange={handleBuscarRUTChange}
                     placeholder="RUT"
                     className="search-input"
                     maxLength={10}
@@ -114,7 +114,7 @@ export function TableUsuario() {
                 <input
                     type="text"
                     value={searchName}
-                    onChange={handleSearchNameChange}
+                    onChange={handleBuscarNombreChange}
                     placeholder="Nombre"
                     className="search-input"
                     maxLength={40}

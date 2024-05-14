@@ -72,7 +72,7 @@ export function NavMenu({rolId, onMenuSelection, onCollapsedChange }) {
           </Menu>
 
           <Menu>
-            {rolId === 'b09fdd55-3bb9-4309-a268-37181cde7cd9' && (
+            {rolId === 'b09fdd55-3bb9-4309-a268-37181ced7cd9' && (
               <MenuItem icon={<LuUserPlus />}>Ingreso</MenuItem>
             )}
             {rolId === '054690f9-7522-4bdb-ad3F-3Ec0fbb2e864' && (
@@ -81,7 +81,7 @@ export function NavMenu({rolId, onMenuSelection, onCollapsedChange }) {
             {rolId === '1c750d1a-264d-405e-ae20-365537edb404' && (
               <MenuItem icon={<LuUserPlus />} onClick={() => onMenuSelection('asignacion')}>Asignación</MenuItem>
             )}
-            {rolId === '16298d23-cd62-4068-802a-0191e3Aeb4e6' && (
+            {rolId === '16298d23-cd62-4068-802a-0191e3aeb4e6' && (
               <MenuItem icon={<LuUserPlus />}>Alta Paciente</MenuItem>
             )}
             {rolId === '7979705f-2d1a-435f-83f4-76fb333a481f' && (

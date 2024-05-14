@@ -5,34 +5,32 @@
 }
 
 .input-style {
-    width: 100%; /* Asegura que el ancho del select coincida con el de los inputs */
-    padding: 0.3rem; /* Relleno similar a los inputs */
-    border-radius: 4px; /* Radio de esquina similar a los inputs */
+    width: 100%;
+    padding: 0.3rem;
+    border-radius: 4px;
 }
 
-/* Estilos para los botones */
 .submit-button, .close-button {
-    padding: 0.5rem 1rem; /* Ajusta el relleno según sea necesario */
-    border: none; /* Ajusta el estilo del borde según sea necesario */
-    border-radius: 4px; /* Radio de esquina similar para ambos botones */
-    cursor: pointer; /* Cursor de puntero al pasar sobre los botones */
-    /* Añade otros estilos según tus necesidades (color, fondo, etc.) */
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.submit-button{
-  background-color: #0B2B85;
-  color: white;
+.submit-button {
+    background-color: #0B2B85;
+    color: white;
 }
 
-.title{
+.title {
     text-align: left;
 }
 
 .submit-button:hover {
-    background-color: #1e45b3; /* Color de fondo al pasar el mouse */
+    background-color: #1e45b3;
 }
 
 .table-scroll-container {
-    overflow-x: auto; /* Permite el desplazamiento horizontal */
-    max-width: 100%; /* Ajusta el ancho máximo según el tamaño del contenedor */
+    overflow-x: auto;
+    max-width: 100%;
 }

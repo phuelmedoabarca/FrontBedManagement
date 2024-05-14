@@ -69,9 +69,9 @@
 }
 
 .delete-button {
-    background-color: #f44336; /* Color de fondo rojo */
+    background-color: #f44336;
 }
 
 .delete-button:hover {
-    background-color: #e53935; /* Color de fondo al pasar el mouse */
+    background-color: #e53935;
 }

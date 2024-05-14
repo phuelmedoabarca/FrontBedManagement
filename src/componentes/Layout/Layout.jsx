@@ -37,7 +37,7 @@ export function Layout() {
 
             <div className={`content ${collapsed ? 'collapsed' : ''}`}>
                 {selectedMenu === null && (
-                    <div className="welcome-message">
+                    <div>
                         
                     </div>
                 )}

@@ -1,52 +1,52 @@
 .search-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .search-input {
-    flex: 1;
-    width: 100%;
-  }
-  
-  @media screen and (max-width: 650px) {
-    .search-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.search-input {
+  flex: 1;
+  width: 100%;
+}
+
+@media screen and (max-width: 650px) {
+  .search-container {
       flex-direction: column;
-    }
   }
+}
 
 .counter-container {
-    display: flex; /* Utiliza flexbox para alinear los contadores */
-    justify-content: space-around; /* Espacio uniforme entre los contadores */
-    margin-bottom: 20px; /* Espaciado inferior entre los contadores */
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
 }
 
 .counter-box {
-    padding: 10px; /* Espaciado interno */
-    border: 2px solid #ccc; /* Borde del recuadro */
-    border-radius: 8px; /* Bordes redondeados */
-    text-align: center; /* Alineación del texto al centro */
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
 }
 
 .counter-number {
-    font-size: 24px; /* Tamaño de fuente grande */
-    font-weight: bold; /* Texto en negrita */
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .counter-label {
-    margin-top: 5px; /* Espaciado superior entre el número y la etiqueta */
+  margin-top: 5px;
 }
 
 .custom-slider {
-  width: 70%; /* Ancho completo del slider */
-  max-width: 800px; /* Ancho máximo del slider */
+  width: 70%;
+  max-width: 800px;
 }
 
 .slider-container {
   display: flex;
-  justify-content: center; /* Centra horizontalmente */
+  justify-content: center;
 }
 
 .slick-slide {
-  padding-right: 20px; /* Ajusta este valor según sea necesario */
+  padding-right: 20px;
 }

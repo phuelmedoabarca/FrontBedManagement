@@ -30,7 +30,7 @@ function NewUsuarioModal({ isOpen, onClose, onSubmit, initialValues = {} }) {
             try {
                 const data = await API.GetRoles(storedToken);
                 setRoles(data);
-                console.error(data);
+                console.info(data);
             } catch (error) {
                 console.error('Error al obtener los roles:', error);
             }

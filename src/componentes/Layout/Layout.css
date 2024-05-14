@@ -26,20 +26,20 @@
 
 @media screen and (max-width: 768px) {
     .layout-container {
-        flex-direction: column; /* Cambiar a una columna en pantallas pequeñas */
+        flex-direction: column;
     }
 
     .sidebar {
-        width: 100%; /* Ocupar todo el ancho disponible */
-        height: auto; /* Ajustar la altura automáticamente */
+        width: 100%;
+        height: auto;
     }
 
     .content {
-        flex: none; /* No se expande, toma su tamaño según su contenido */
-        margin-left: 0; /* Ajustar el margen izquierdo */
+        flex: none;
+        margin-left: 0;
     }
 
     .sidebar.collapsed {
-        width: 100%; /* Si está colapsado, ocupar todo el ancho disponible */
+        width: 100%;
     }
 }
